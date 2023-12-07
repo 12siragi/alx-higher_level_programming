@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-def best_score(a_dictionary):
-    if not a_dictionary:
-        return (None)
+def print_sorted_dictionary(a_dictionary):
+    sorted_keys = sorted(a_dictionary.keys())
 
-    return (max(a_dictionary, key=a_dictionary.get))
+    for key in sorted_keys:
+        print(f"{key}: {a_dictionary[key]}")
