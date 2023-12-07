@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-def print_sorted_dictionary(a_dictionary):
-    # Sort keys in alphabetical order
-    sorted_keys = sorted(a_dictionary.keys())
-    
-    # Iterate through sorted keys and print dictionary contents
-    for key in sorted_keys:
-        print(f"{key}: {a_dictionary[key]}")
+def best_score(a_dictionary):
+    if not a_dictionary:
+        return (None)
+
+    return (max(a_dictionary, key=a_dictionary.get))

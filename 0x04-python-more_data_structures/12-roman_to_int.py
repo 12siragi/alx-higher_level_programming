@@ -1,16 +1,40 @@
 #!/usr/bin/python3
-def best_score(a_dictionary):
-    if not a_dictionary:
-        return None
+def to_subtract(list_num):
+    to_sub = 0
+    max_list = max(list_num)
 
-    max_score = float('-inf')  # Initialize with negative infinity for comparison
-    best_key = None
+    for n in list_num:
+        if max_list > n:
+            to_sub += n
 
-    # Iterate through the items in the dictionary
-    for key, value in a_dictionary.items():
-        # Check if the value is greater than the current max_score
-        if value > max_score:
-            max_score = value
-            best_key = key
+    return (max_list - to_sub)
 
-    return best_key
+
+def roman_to_int(roman_string):
+    if not roman_string:
+        return 0
+
+    if not isinstance(roman_string, str):
+        return 0
+
+    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    list_keys = list(rom_n.keys())
+
+    num = 0
+    last_rom = 0
+    list_num = [0]
+
+    for ch in roman_string:
+        for r_num in list_keys:
+            if r_num == ch:
+                if rom_n.get(ch) <= last_rom:
+                    num += to_subtract(list_num)
+                    list_num = [rom_n.get(ch)]
+                else:
+                    list_num.append(rom_n.get(ch))
+
+                last_rom = rom_n.get(ch)
+
+    num += to_subtract(list_num)
+
+    return (num)
