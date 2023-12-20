@@ -1,55 +1,16 @@
 #!/usr/bin/python3
-"""Define a class Square."""
+"""Define a MagicClass matching exactly a bytecode provided by Holberton."""
+import math
 
-
-class Square:
-    """Represent a square."""
-
-    def __init__(self, size=0):
-        """Initialize a new square.
-
-        Args:
-            size (int): The size of the new square.
-        """
-        self.size = size
-
-    @property
-    def size(self):
-        """Get/set the current size of the square."""
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+class MagicClass:
+    def __init__(self, radius=0):
+        self.__radius = 0
+        if type(radius) is not int and type(radius) is not float:
+            raise TypeError("radius must be a number")
+        self.__radius = radius
 
     def area(self):
-        """Return the current area of the square."""
-        return self.__size * self.__size
+        return self.__radius ** 2 * math.pi
 
-    def __eq__(self, other):
-        """Define the == comparison to a Square."""
-        return self.area() == other.area()
-
-    def __ne__(self, other):
-        """Define the != comparison to a Square."""
-        return self.area() != other.area()
-
-    def __lt__(self, other):
-        """Define the < comparison to a Square."""
-        return self.area() < other.area()
-
-    def __le__(self, other):
-        """Define the <= comparison to a Square."""
-        return self.area() <= other.area()
-
-    def __gt__(self, other):
-        """Define the > comparison to a Square."""
-        return self.area() > other.area()
-
-    def __ge__(self, other):
-        """Define the >= comparison to a Square."""
-        return self.area() >= other.area()
+    def circumference(self):
+        return 2 * math.pi * self.__radius
