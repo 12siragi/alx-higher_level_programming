@@ -1,5 +1,6 @@
-
-dule: 7-rectangle.py
+#!/usr/bin/python3
+"""
+Module: 7-rectangle.py
 """
 
 
