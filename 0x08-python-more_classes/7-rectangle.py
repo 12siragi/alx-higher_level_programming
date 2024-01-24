@@ -1,8 +1,7 @@
-#!/usr/bin/python3
 
+dule: 7-rectangle.py
 """
-Defines a class Rectangle
-"""
+
 
 class Rectangle:
     """
