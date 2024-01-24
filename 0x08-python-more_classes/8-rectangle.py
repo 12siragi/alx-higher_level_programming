@@ -1,4 +1,6 @@
-s module defines a Rectangle class
+#!/usr/bin/python3
+"""
+This module defines a Rectangle class
 """
 
 

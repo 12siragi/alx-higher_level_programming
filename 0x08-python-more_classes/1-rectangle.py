@@ -1,5 +1,6 @@
-
-dule 2-rectangle
+#!/usr/bin/python3
+"""
+Module 2-rectangle
 Contains class Rectangle
 with private attribute width and height
 """
