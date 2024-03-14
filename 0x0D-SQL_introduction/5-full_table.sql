@@ -1,4 +1,4 @@
--- 5-full_table.sql
-
-DESCRIBE hbtn_0c_0.first_table;
-
+-- Prints the full description of a table in a database in a MySQL server.
+SHOW
+CREATE TABLE
+    `first_table`;

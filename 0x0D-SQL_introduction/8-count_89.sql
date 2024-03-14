@@ -1,4 +1,8 @@
--- 8-count_89.sql
-
-SELECT COUNT(*) FROM hbtn_0c_0.first_table WHERE id = 89;
-
+-- Displays the number of records with a given value from a table
+-- in a database in a MySQL server.
+SELECT
+    COUNT(*)
+FROM
+    `first_table`
+WHERE
+    `id` = 89;
