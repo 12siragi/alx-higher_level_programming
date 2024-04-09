@@ -1,13 +1,12 @@
 #!/usr/bin/node
-/* a class Square that defines a square and inherits from Rectangle of 5-square.js */
+/* a class Square that defines a square and inherits from Square of 5-square.js */
 const Rectangle = require('./5-square.js');
-
 module.exports = class Square extends Rectangle {
-  constructor(size) {
+  constructor (size) {
     super(size, size);
   }
 
-  charPrint(c) {
+  charPrint (c) {
     if (c === undefined) {
       this.print();
     } else {
@@ -17,4 +16,3 @@ module.exports = class Square extends Rectangle {
     }
   }
 };
-
