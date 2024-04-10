@@ -1,3 +1,10 @@
 #!/usr/bin/node
-const add = require('./13-add').add;
-console.log(add(3, 5));
+
+// Define the add function
+function add(a, b) {
+  return a + b;
+}
+
+// Export the add function to make it visible outside
+module.exports.add = add;
+
