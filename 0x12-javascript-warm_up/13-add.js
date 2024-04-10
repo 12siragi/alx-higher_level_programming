@@ -1,10 +1,7 @@
 #!/usr/bin/node
-
-// Define the add function
-function add(a, b) {
-  return a + b;
+/* a function that returns the addition of 2 integers */
+exports.add = add;
+function add (a, b) {
+  const sum = a + b;
+  return (sum);
 }
-
-// Export the add function to make it visible outside
-module.exports.add = add;
-
