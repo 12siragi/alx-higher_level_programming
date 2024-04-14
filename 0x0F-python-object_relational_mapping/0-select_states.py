@@ -1,34 +1,20 @@
 #!/usr/bin/python3
-import MySQLdb
+"""
+Lists all states from the database hbtn_0e_0_usa
+"""
 import sys
+import MySQLdb
 
-if __name__ == "__main__":
-    # Check if all arguments are provided
-    if len(sys.argv) != 4:
-        print("Usage: {} username password database".format(sys.argv[0]))
-        sys.exit(1)
-
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost",
-                         user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
-                         port=3306)
-
-    # Create a cursor object
+if __name__ == '__main__':
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306,
+        host='localhost')
     cursor = db.cursor()
+    cursor.execute('SELECT * FROM states ORDER BY states.id ASC;')
 
-    # Execute the query
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-
-    # Fetch all the rows
-    rows = cursor.fetchall()
-
-    # Display the results
-    for row in rows:
-        print(row)
-
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
-
+    states = cursor.fetchall()
+    for state in states:
+        print(state)
