@@ -3,26 +3,32 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Get MySQL credentials from command line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    # Check if all arguments are provided
+    if len(sys.argv) != 4:
+        print("Usage: {} username password database".format(sys.argv[0]))
+        sys.exit(1)
 
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost",
+                         user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         port=3306)
 
-    # Create a cursor object using cursor() method
+    # Create a cursor object
     cursor = db.cursor()
 
-    # Execute SQL query to select all states from the states table
+    # Execute the query
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all the rows in a list of tuples
-    results = cursor.fetchall()
+    # Fetch all the rows
+    rows = cursor.fetchall()
 
-    # Print the results
-    for row in results:
+    # Display the results
+    for row in rows:
         print(row)
 
-    # Disconnect from server
+    # Close the cursor and database connection
+    cursor.close()
     db.close()
+
